@@ -65,16 +65,17 @@ const DetailPage = () => {
   // });
 
   return (
-    <div className="w-full   h-full flex flex-col  items-center">
-      <div className="w-3/4">
+    <div className="w-full     h-full flex flex-col  items-center">
+      <div className="   w-full   md:w-3/4 transition-all duration-700  ">
         <Navbar />
       </div>
       <div className="w-full min-h-full flex justify-center mt-20">
-        <div className="w-3/4 h-full flex-col  p-6 bg-white">
+        <div className="    w-full  md:w-3/4    transition-all duration-700 h-full flex-col  p-6 bg-white">
           <div className="flex justify-between mb-5 ">
             <div className="text-2xl font-semibold">{items.title}</div>
             <div className="flex space-x-2">
               <Button
+              size="small"
                 onClick={handleOpen}
                 style={{
                   background: "rgba(107, 33, 168, 1)",
@@ -107,6 +108,7 @@ const DetailPage = () => {
               </Modal>
 
               <Button
+              size="small"
                 style={{
                   background: "rgba(107, 33, 168, 1)",
                   color: "rgba(255,255, 255, 1)",

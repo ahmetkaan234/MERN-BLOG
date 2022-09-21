@@ -34,6 +34,7 @@ export const articleSlice = createSlice({
     initialState:{
     items: [],  
     filteredItems : [],
+    errorMessage:""
     },
     reducers : {
 
@@ -44,13 +45,24 @@ export const articleSlice = createSlice({
             
         },
         [postArticleAsync.fulfilled]: (state,action) =>{
+            if(action.payload.message){
+                return ;
+            }
+
             state.items.push(action.payload) 
+            
         },
         [getDetailArticeAsync.fulfilled] :  (state,action) =>{
             const {slug} = action.payload;
             const index  =  state.items.find((item)=>item.slug ===slug);  
             state.filteredItems = index;
          },
+         [uptadeArticleAsync.fulfilled] : (state,action) =>{
+            if(action.payload.message){
+                state.errorMessage =action.payload.message;
+                return state.errorMessage ;
+            }
+         }
        
 
     }
